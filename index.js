@@ -27,7 +27,7 @@ server.use(restify.fullResponse())
  * Lift Server, Connect to DB & Require Route File
  */
 server.listen(config.port, () => {
-
+    console.log(process.env.OPENSHIFT_NODEJS_IP);
     // establish connection to mongodb atlas
     mongodb.connect(config.db.uri, (err, db) => {
 
