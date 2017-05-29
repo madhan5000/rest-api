@@ -14,9 +14,9 @@ module.exports = function(ctx) {
      * Create
      */
     server.post('/todos', (req, res, next) => {
-
+        let body = JSON.parse(req.body);
         // extract data from body and add timestamps
-        const data = Object.assign({}, req.body, {
+        const data = Object.assign({}, body, {
             created: new Date(),
             updated: new Date()
         })
