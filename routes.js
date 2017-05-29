@@ -20,10 +20,10 @@ module.exports = function(ctx) {
             created: new Date(),
             updated: new Date()
         })
-
+        var incoming = body.From;
         // insert one object into todos collection
         collection.insertOne(data)
-            .then(doc => res.send(200, doc.ops[0]))
+            .then(doc => res.send(200, "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>Hi there!"+ incoming +"</Message></Response>"))
             .catch(err => res.send(500, err))
 
         next()
